@@ -15,7 +15,7 @@ jobs:
 
       - name: Build & Deploy
         run: |
-          TAG="ghcr.io/HermitSun/texlive-full"
+          TAG="ghcr.io/hermitsun/texlive-full"
           VERSION="$(date "+%Y%m%d")"
           docker build -t $TAG:$VERSION .
           docker tag $TAG:$VERSION $TAG:latest
