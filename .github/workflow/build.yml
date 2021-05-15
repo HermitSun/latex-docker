@@ -1,0 +1,24 @@
+name: Build Docker Image
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: "!(github.event_name == 'push' && contains(github.event.head_commit.message, '[skip ci]'))"
+    name: Build TeXLive Full
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Build & Deploy
+        run: |
+          TAG="ghcr.io/HermitSun/texlive-full"
+          VERSION="$(date "+%Y%m%d")"
+          docker build -t $TAG:$VERSION .
+          docker tag $TAG:$VERSION $TAG:latest
+          echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u HermitSun --password-stdin
+          docker push $TAG:$VERSION
+          docker push $TAG:latest
