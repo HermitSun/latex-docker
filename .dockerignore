@@ -7,3 +7,6 @@ Dockerfile
 # docs
 LICENSE
 README.md
+
+# ignore file
+.gitignore
