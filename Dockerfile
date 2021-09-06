@@ -16,4 +16,5 @@ RUN cp /opt/texlive/texdir/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fon
     && mv /linux/ /usr/share/fonts/ \
     && mv /mac/ /usr/share/fonts/ \
     && mv /win/ /usr/share/fonts/ \
+    && mv /common/ /usr/share/fonts/ \
     && fc-cache -fsv
