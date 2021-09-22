@@ -14,9 +14,10 @@ LABEL org.opencontainers.image.title="Docker Image of TeXLive with zh_CN Support
 # ignore files in .dockerignore
 COPY . /
 
-# install texlive first
+# install texlive first, make sure setup.sh has permission
 # and then prepare fonts
-RUN /setup.sh ${scheme} \
+RUN chmod +x /setup.sh \
+    && /setup.sh ${scheme} \
     && cp /opt/texlive/texdir/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf \
     && mv /adobe/ /usr/share/fonts/ \
     && mv /linux/ /usr/share/fonts/ \
