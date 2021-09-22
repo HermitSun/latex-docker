@@ -1,5 +1,5 @@
 # fix version
-FROM ghcr.io/xu-cheng/texlive-full:20210501
+FROM ghcr.io/xu-cheng/texlive-full:20210901
 
 LABEL org.opencontainers.image.title="Docker Image of TeXLive with zh_CN Support" \
   org.opencontainers.image.authors="Cheng Xu <copyright@xuc.me>, HermitSun <syl1887415157@126.com>" \
