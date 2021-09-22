@@ -1,12 +1,14 @@
+# git
+.git/
+
 # docker
 Dockerfile
 
 # github
 .github/
 
-# docs
-LICENSE
-README.md
-
 # ignore file
 .gitignore
+
+# IDE conf
+.idea/
